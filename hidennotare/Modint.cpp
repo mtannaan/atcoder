@@ -1,11 +1,15 @@
+// 算術演算のたびに自動でmodをとる整数型
+// https://github.com/atcoder-live/library/blob/master/mint.cpp
+// をもとに実装し、編集
+
 #include <cstdint>
 #include <iostream>
 
 using namespace std;
 
-// MOD (素数)
-const int64_t MOD = 1000000007; // 10^9 + 7
+const int64_t MOD = 1000000007; // prime number
 
+// 算術演算のたびに自動でmodをとる整数型
 struct Modint
 {
     int64_t value;
@@ -76,6 +80,7 @@ struct Modint
     }
 
     // mod MODにおける逆元を返す
+    // O(log(MOD))
     Modint inv() const
     {
         // 1 = inv(a) * a  (mod MOD) をみたすinv(a)を求める
@@ -88,6 +93,7 @@ struct Modint
     }
 
     // expon乗した値を返す
+    // O(log(expon))
     Modint pow(const int64_t expon) const
     {
         if (expon == 0)
