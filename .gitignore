@@ -4,3 +4,6 @@ a.out
 *.dSYM/
 
 .DS_Store
+
+bin/
+obj/
